@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bee – Pure HTML & CSS</title>
+  <style>
+    :root {
+      --bee: #f7c948;
+      --bee-dark: #f0b429;
+      --stripe: #27272a;
+      --wing: #ffffff;
+      --wing-outline: rgba(0, 0, 0, 0.08);
+      --eye: #111827;
+      --bg: #f8fafc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 20% 10%, #f2ff00 0 25%, #c2dcf6 26% 100%);
+      overflow: hidden;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Helvetica Neue";
+    }
+
+    .scene {
+      position: relative;
+      width: 420px;
+      height: 320px;
+      isolation: isolate;
+    }
+
+    /* Clouds */
+    .cloud { position: absolute; background: #fff; border-radius: 50px; filter: drop-shadow(0 8px 20px rgba(0,0,0,.08)); opacity: .95; }
+    .cloud::before, .cloud::after { content: ""; position: absolute; background: #fff; border-radius: 50px; }
+    .cloud.small { width: 90px; height: 36px; left: 430px; top: 24px; }
+    .cloud.small::before { width: 40px; height: 40px; left: 10px; top: -10px; }
+    .cloud.small::after  { width: 48px; height: 48px; right: 10px; top: -16px; }
+    .cloud.large { width: 150px; height: 50px; right: -200px; top: 40px; }
+    .cloud.large::before { width: 66px; height: 66px; left: 16px; top: -26px; }
+    .cloud.large::after  { width: 76px; height: 76px; right: 16px; top: -36px; }
+
+    /* Bee container */
+    .bee {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 230px;
+      height: 160px;
+      animation: hover 3s ease-in-out infinite;
+    }
+
+    @keyframes hover {
+      0%, 100% { transform: translate(-50%, -50%) rotate(-2deg); }
+      50%       { transform: translate(calc(-50% + 3px), calc(-50% - 6px)) rotate(2deg); }
+    }
+
+    /* Body */
+    .body {
+      position: absolute;
+      left: 0; right: 0; margin: auto;
+      width: 230px; height: 140px;
+      border-radius: 110px;
+      background: linear-gradient(180deg, var(--bee) 0%, var(--bee-dark) 100%);
+      box-shadow: inset 0 -10px 0 rgba(0,0,0,.06), 0 6px 12px rgba(0,0,0,.12);
+    }
+    .strip { position: absolute; height: 28px; left: 16px; right: 16px; background: var(--stripe); border-radius: 20px; opacity: .95; transform: rotate(90deg) }
+    .strip.s1 { left: 54px; width: 140px; top: 54px;}
+    .strip.s2 { left: 89px; width: 140px; top: 54px;}
+    .strip.s3 { left: 134px; width: 120px; top: 54px;}
+
+
+    /* Wings */
+    .wing { position: absolute; width: 110px; height: 90px; background: var(--wing); border-radius: 60% 60% 50% 50%; top: -40px; filter: drop-shadow(0 6px 6px rgba(0,0,0,.12)); border: 2px solid var(--wing-outline); }
+    .w1 { left: 20px; transform: rotate(-12deg); animation: flap 3s ease-in-out infinite; transform-origin: 60% 80%; }
+    .w2 { left: 120px; transform: rotate(8deg); animation: flap 3s ease-in-out -.2s infinite; transform-origin: 60% 80%; }
+    @keyframes flap { 0%,100% { transform: rotate(-6deg) scale(1); } 50% { transform: rotate(10deg) scale(1.05); } }
+
+    /* Face */
+    .face { position: absolute; left: 20px; top: 36px; width: 120px; height: 90px; }
+    .eye { position: absolute; width: 22px; height: 22px; background: var(--eye); border-radius: 50%; top: 20px; box-shadow: 0 0 0 4px #fff inset, 0 4px 0 rgba(0,0,0,.08); }
+    .eye::after { content: ""; position: absolute; width: 6px; height: 6px; background: #fff; border-radius: 50%; top: 4px; left: 8px; }
+    .eye.left  { left: 18px; }
+    .eye.right { left: 58px; }
+    .smile { position: absolute; width: 60px; height: 36px; border: 5px solid transparent; border-bottom-color: var(--eye); border-radius: 0 0 80px 80px; top: 46px; left: 26px; }
+
+    /* Antennae */
+    .antenna { position: absolute; width: 3px; height: 46px; background: var(--stripe); top: -26px; border-radius: 2px; transform-origin: bottom center; }
+    .a1 { left: 46px; transform: rotate(-18deg); }
+    .a2 { left: 86px; transform: rotate(18deg); }
+    .antenna::after { content: ""; position: absolute; width: 10px; height: 10px; background: var(--stripe); border-radius: 50%; top: -6px; left: -4px; }
+
+    /* Stinger */
+    .stinger { position: absolute; right: -17px; top: 64px; width: 0; height: 0; border-left: 18px solid var(--stripe); border-top: 8px solid transparent; border-bottom: 8px solid transparent; filter: drop-shadow(0 2px 0 rgba(0,0,0,.15)); }
+
+    /* Legs */
+    .legs { position: absolute; bottom: -8px; left: 40px; right: 40px; height: 18px; }
+    .leg { position: absolute; width: 4px; height: 18px; background: var(--stripe); bottom: 0; border-radius: 5px; }
+    .leg:nth-child(1) { left: 0; }
+    .leg:nth-child(2) { left: 30%; }
+    .leg:nth-child(3) { left: 60%; }
+    .leg:nth-child(4) { right: 0; }
+
+    /* A11y */
+    .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); }
+
+    /* Responsive */
+    @media (max-width: 560px) {
+      .scene { width: 320px; height: 260px; }
+      .bee { transform: translate(-50%, -50%) scale(.85); animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene" role="img" aria-label="bee hovering with flapping wings.">
+    <div class="cloud small"></div>
+    <div class="cloud large"></div>
+
+    <div class="bee" aria-hidden="true">
+      <div class="wing w1"></div>
+      <div class="wing w2"></div>
+
+      <div class="body">
+        <span class="strip s1"></span>
+        <span class="strip s2"></span>
+        <span class="strip s3"></span>
+
+        <div class="antenna a1"></div>
+        <div class="antenna a2"></div>
+
+        <div class="face">
+          <div class="eye left"></div>
+          <div class="eye right"></div>
+          <div class="smile"></div>
+        </div>
+
+        
+        <div class="stinger"></div>
+        <div class="legs">
+          <div class="leg"></div>
+          <div class="leg"></div>
+          <div class="leg"></div>
+          <div class="leg"></div>
+        </div>
+      </div>
+ 
+    </div>
+    <div class="shadow" aria-hidden="true"></div>
+      <div class="bubble">Hi, I'm a bee!  bzzzzzzzz</div>
+  </div>
+</body>
+</html>
