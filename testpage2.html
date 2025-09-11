@@ -4,353 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regnbyen Bergen</title>
-    <style>
-        :root {
-            --primary: #1e3a8a; /* Deep Nordic blue */
-            --secondary: #60a5fa; /* Rainy sky blue */
-            --accent: #0ea5e9; /* Ocean-inspired teal */
-            --text-light: #f8fafc; /* Off-white for text */
-            --bg-dark: #0f172a; /* Dark navy for depth */
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        /* Navigation Bar - Superlist Inspired */
-        .nav-container {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.2rem 5%;
-            background-color: rgba(30, 58, 138, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--text-light);
-            text-decoration: none;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        .nav-item {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .nav-item span {
-            color: var(--text-light);
-            font-weight: 500;
-            padding: 0.6rem 0;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
-
-        .nav-item:hover span {
-            color: var(--secondary);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 120%;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-            padding: 1rem 0;
-            min-width: 220px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .nav-item:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(-8px);
-        }
-
-        .dropdown-link {
-            display: block;
-            color: var(--primary);
-            text-decoration: none;
-            padding: 0.7rem 2rem;
-            font-size: 0.98rem;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-link:hover {
-            background-color: rgba(96, 165, 250, 0.1);
-            color: var(--accent);
-            padding-left: 2.4rem;
-        }
-
-        .nav-cta {
-            background-color: var(--secondary);
-            color: white;
-            padding: 0.6rem 1.8rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .nav-cta:hover {
-            background-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
-        }
-
-        /* Hero Section - Rainy Bergen Vibe */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 6rem 5% 2rem;
-            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), 
-                        url('') center/cover;
-            color: var(--text-light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/rain.png');
-            opacity: 0.15;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.8rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--secondary), white);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.4s ease;
-            box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
-            background-color: #0d9488; /* Slightly darker teal */
-        }
-
-        /* Rain Animation Overlay */
-        .rain {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .drop {
-            position: absolute;
-            bottom: 100%;
-            width: 1.5px;
-            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.7));
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            animation: rain linear infinite;
-        }
-
-        @keyframes rain {
-            to {
-                transform: translateY(100vh);
-            }
-        }
-
-        /* About Section */
-        .about {
-            padding: 6rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-            color: var(--bg-dark);
-        }
-
-        .about h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            color: var(--primary);
-            position: relative;
-        }
-
-        .about h2::after {
-            content: "";
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary);
-            margin: 1rem auto 0;
-            border-radius: 2px;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .card p {
-            line-height: 1.7;
-            opacity: 0.8;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            text-align: center;
-            padding: 2rem 5%;
-            margin-top: 4rem;
-        }
-
-        footer p {
-            opacity: 0.7;
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none; 
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Generate random rain drops */
-        @media (prefers-reduced-motion: no-preference) {
-            .rain {
-                display: block;
-            }
-        }
-        html {
-    scroll-behavior: smooth; /* smooth scrolling for anchor links */
-}
-
-    /* New styles for an expanded card */
-.card.active {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.05);
-    width: 90%;
-    max-width: 800px;
-    height: auto;
-    z-index: 1000;
-    padding: 4rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    cursor: default;
-    overflow: auto;            /* allow scrolling if content is tall */
-    background-color: white;
-}
-
-/* Optional backdrop to dim the rest of the page */
-.backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 999;
-    display: none;            /* shown when a card is active */
-}
-
-/* Show backdrop when a card is active */
-.card.active + .backdrop {
-    display: block;
-}
-    </style>
+    <!-- NEW: link to external CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
     <nav class="nav-container">
         <div class="nav-content">
-            <a href="#" class="logo" style="font-size: 1.8rem; font-weight: 700; color: white; text-decoration: none;">Regnbyen<span style="color: var(--secondary);">.</span></a>
+            <a href="testpage2.html" class="logo" style="font-size: 1.8rem; font-weight: 700; color: white; text-decoration: none;">Regnbyen<span style="color: var(--secondary);">.</span></a>
             
             <div class="nav-links">
                 <div class="dropdown">
@@ -398,40 +59,48 @@
 
     <!-- About Section -->
     <section id = "about" class="about">
-        <h2>Peoples thoughts about Bergen's Rain</h2>
-        
-        <div class="about-grid">
-            <div class="card">
-                <h3>Værmelding over Bergen</h3>
-                <p>The rain that falls on Bergen nourishes the surrounding fjords, creating some of the most breathtaking natural landscapes in Europe. The mist drifting over the water at dawn is a sight you'll never forget.</p>
-            </div>
-            
-            <div class="card">
-                <h3>Regnklar påkledning</h3>
-                <p>Bergen's maritime history and rainy climate have shaped its unique culture—from cozy seafood restaurants to world-class museums. The rain encourages locals to slow down and savor the moment.</p>
-            </div>
-            
-            <div class="card">
-                <h3>Transport i regnet </h3>
-                <p>Even on rainy days, Bergen offers endless adventures—hiking in the nearby mountains with waterproof gear, exploring colorful wooden Bryggen district, or taking a ferry to one of the many islands.</p>
-            </div>
-            <div class="card">
-                <h3>Hus og hjem som tåler regn</h3>
-                <p>Even on rainy days, Bergen offers endless adventures—hiking in the nearby mountains with waterproof gear, exploring colorful wooden Bryggen district, or taking a ferry to one of the many islands.</p>
-            </div>
-            <div class="card">
-                <h3>Fritidsaktiviteter når det regner</h3>
-                <p>Even on rainy days, Bergen offers endless adventures—hiking in the nearby mountains with waterproof gear, exploring colorful wooden Bryggen district, or taking a ferry to one of the many islands.</p>
-            </div>
-            <div class="card">
-                <h3>Regn kraftstasjon</h3>
-                <p>Even on rainy days, Bergen offers endless adventures—hiking in the nearby mountains with waterproof gear, exploring colorful wooden Bryggen district, or taking a ferry to one of the many islands.</p>
-            </div>
-        </div>
+        <!-- ... existing <section id="about" class="about"> ... -->
+
+<div class="about-grid">
+    <!-- Article 1 -->
+    <a href="article1.html" class="card">
+        <h3>Værmelding over Bergen</h3>
+        <p>The rain that falls on Bergen nourishes the surrounding fjords, ...</p>
+    </a>
+
+    <!-- Article 2 -->
+    <a href="article2.html" class="card">
+        <h3>Regnklar påkledning</h3>
+        <p>Bergen's maritime history and rainy climate have shaped its unique culture...</p>
+    </a>
+
+    <!-- Article 3 -->
+    <a href="article3.html" class="card">
+        <h3>Transport i regnet</h3>
+        <p>Even on rainy days, Bergen offers endless adventures—hiking in the nearby mountains...</p>
+    </a>
+
+    <!-- Article 4 -->
+    <a href="article4.html" class="card">
+        <h3>Hus og hjem som tåler regn</h3>
+        <p>Even on rainy days, Bergen offers endless adventures—hiking in the nearby mountains...</p>
+    </a>
+
+    <!-- Article 5 -->
+    <a href="article5.html" class="card">
+        <h3>Fritidsaktiviteter når det regner</h3>
+        <p>Even on rainy days, Bergen offers endless adventures—hiking in the nearby mountains...</p>
+    </a>
+
+    <!-- Article 6 -->
+    <a href="article6.html" class="card">
+        <h3>Regn kraftstasjon</h3>
+        <p>Even on rainy days, Bergen offers endless adventures—hiking in the nearby mountains...</p>
+    </a>
+</div>
+<!-- ... rest of the page ... -->
     </section>
-    <section id="about" class="about">
-    <!-- existing content -->
-    </section>
+    
     <div class="backdrop"></div>
 
     <!-- Footer -->
@@ -466,38 +135,6 @@
                 
                 rainContainer.appendChild(drop);
             }
-
-
-            /* Card expansion logic */
-        const cards = document.querySelectorAll('.card');
-        const backdrop = document.querySelector('.backdrop');
-
-        cards.forEach(card => {
-            card.addEventListener('click', function(e) {
-                // Prevent multiple cards from being active at once
-                document.querySelectorAll('.card.active').forEach(activeCard => {
-                    activeCard.classList.remove('active');
-                });
-
-                // Toggle active state on the clicked card
-                card.classList.toggle('active');
-
-                // If card is active, show backdrop; else hide it
-                if (card.classList.contains('active')) {
-                    backdrop.style.display = 'block';
-                } else {
-                    backdrop.style.display = 'none';
-                }
-            });
-        });
-
-        // Close active card when backdrop is clicked
-        backdrop.addEventListener('click', function() {
-            document.querySelectorAll('.card.active').forEach(activeCard => {
-                activeCard.classList.remove('active');
-            });
-            backdrop.style.display = 'none';
-        });
     });
         
     </script>
