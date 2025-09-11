@@ -1,187 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Bergen – The City of Rain</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-/* ---------- General ---------- */
-*{box-sizing:border-box;margin:0;padding:0;}
-body{
-  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-  color:#fff;
-  background:linear-gradient(135deg,#0a2a45,#2a475e);
-  min-height:100vh;
-  overflow-x:hidden;
-}
-
-/* ---------- Rain containers ---------- */
-.rain, .window-rain{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;z-index:8;}
-.window-rain{z-index:9;}
-
-/* ---------- Glass window overlay ---------- */
-.window{
-  position:fixed;top:0;left:0;width:100%;height:100%;
-  background:rgba(255,255,255,0.04);pointer-events:none;z-index:9;
-}
-
-/* ---------- Layout ---------- */
-header,footer{padding:2rem 1.5rem;text-align:center;}
-header h1{font-size:clamp(2rem,5vw,4rem);margin-bottom:.5rem;}
-header p{font-size:1.2rem;color:#c0d8f0;}
-.content{max-width:1200px;margin:0 auto;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;}
-.card{
-  background:rgba(255,255,255,.08);backdrop-filter:blur(4px);
-  border-radius:12px;padding:1.5rem;box-shadow:0 4px 12px rgba(0,0,0,.3);
-  transition:transform .3s ease;cursor:pointer;
-}
-.card:hover{transform:translateY(-5px);}
-.card h3{margin-bottom:.75rem;color:#a0e3ff;}
-.card p{line-height:1.6;color:#d0e6ff;}
-footer{font-size:.9rem;color:#9ab8d2;}
-footer a{color:#a0e3ff;}
-#chart-container{
-  background:rgba(255,255,255,.05);border-radius:12px;padding:1.5rem;margin-top:2rem;
-}
-canvas{max-width:100%;height:auto;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regnbyen Bergen</title>
+    <!-- NEW: link to external CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="index.html" class="logo" style="font-size: 1.8rem; font-weight: 700; color: white; text-decoration: none;">Regnbyen<span style="color: var(--secondary);">.</span></a>
+            
+            <div class="nav-links">
+                <div class="dropdown">
+                    <span>Explore</span>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-link">Landmarks</a>
+                        <a href="#" class="dropdown-link">Neighborhoods</a>
+                        <a href="#" class="dropdown-link">Hidden Gems</a>
+                    </div>
+                </div>
+                
+                <div class="dropdown">
+                    <span>Culture</span>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-link">Museums</a>
+                        <a href="#" class="dropdown-link">Festivals</a>
+                        <a href="#" class="dropdown-link">Cuisine</a>
+                    </div>
+                </div>
+                
+                <div class="dropdown">
+                    <span>Weather</span>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-link">Rainy Days Guide</a>
+                        <a href="#" class="dropdown-link">Seasonal Patterns</a>
+                        <a href="#" class="dropdown-link">What to Wear</a>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#" class="nav-cta">Visit Bergen</a>
+        </div>
+    </nav>
 
-<!-- Rain layers -->
-<div class="rain"></div>
-<div class="window"><div class="window-rain"></div></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="rain" id="rain"></div>
+        
+        <div class="hero-content">
+            <h1>Bergen: Regnbyen </h1>
+            <p>
+                Velkommen til din overlevingsguide i regnbyen Bergen!
+                Bergen er kjent for sitt vakre landskap, rike kultur og ikkje minst for regnet som høyrer kvardagen til.
+                På denne nettsida finn du alt du treng for å gjere livet i regnbyen både enklare og meir behageleg.
+            </p>
+            <a href="#about" class="cta-button">Utforsk regnets sjarm</a>
+        </div>
+    </section>
 
-<header>
-  <h1>Bergen</h1>
-  <p>The City that Loves Rain</p>
-</header>
+    <!-- About Section -->
+    <section id = "about" class="about">
 
-<main class="content">
-  <section>
-    <h2 style="color:#a0e3ff;text-align:center;margin-bottom:1.5rem;">Why Bergen is the Rain Capital</h2>
-    <div class="grid">
-      <div class="card"><h3>Geography</h3><p>Surrounded by mountains and fjords, Bergen captures moisture from the North Atlantic, leading to high rainfall.</p></div>
-      <div class="card"><h3>Culture</h3><p>Rain is woven into local art, music, and daily life—think cozy cafés, traditional wooden houses, and vibrant street art.</p></div>
-      <div class="card"><h3>Architecture</h3><p>Rainy days inspire damp, warm interiors. The iconic Bryggen wooden wharf and modern glass structures blend tradition and contemporary design.</p></div>
-      <div class="card"><h3>Festivals</h3><p>Events like the Bergen International Festival embrace the weather, offering indoor performances, art installations, and themed cafés.</p></div>
-    </div>
-  </section>
+<div class="about-grid">
+    <!-- Article 1 -->
+    <a href="article1.html" class="card">
+        <h3>Værmelding over Bergen</h3>
+        <p>The rain that falls on Bergen nourishes the surrounding fjords, ...</p>
+    </a>
 
-  <section style="margin-top:3rem;">
-    <h2 style="color:#a0e3ff;text-align:center;margin-bottom:1.5rem;">Explore Bergen</h2>
-    <div class="grid">
-      <div class="card"><h3>Mount Fløyen</h3><p>Take the funicular and enjoy panoramic views—perfect for a rainy stroll.</p></div>
-      <div class="card"><h3>Vossakilen</h3><p>Boat tours amidst misty fjords, ideal for photography lovers.</p></div>
-      <div class="card"><h3>Fish Market</h3><p>Sample fresh seafood and warm drinks while the rain falls outside.</p></div>
-      <div class="card"><h3>Concert Hall</h3><p>Catch local musicians in an intimate, acoustically‑rich space.</p></div>
-    </div>
-  </section>
+    <!-- Article 2 -->
+    <a href="article2.html" class="card">
+        <h3>Regnklar påkledning</h3>
+        <p>Bergen's maritime history and rainy climate have shaped its unique culture...</p>
+    </a>
 
-  <!-- Rainfall Comparison Chart -->
-  <section id="chart-container">
-    <h2 style="color:#a0e3ff;text-align:center;margin-bottom:1.5rem;">Monthly Rainfall: Bergen vs Oslo</h2>
-    <canvas id="rainfallChart"></canvas>
-  </section>
-</main>
+    <!-- Article 3 -->
+    <a href="article3.html" class="card">
+        <h3>Transport i regnet</h3>
+        <p>Even on rainy days, Bergen offers endless adventures—hiking in the nearby mountains...</p>
+    </a>
 
-<footer>
-  © 2025 Bergen Rain Co. | <a href="#">Privacy Policy</a>
-</footer>
+    <!-- Article 4 -->
+    <a href="article4.html" class="card">
+        <h3>Hus og hjem som tåler regn</h3>
+        <p>Even on rainy days, Bergen offers endless adventures—hiking in the nearby mountains...</p>
+    </a>
 
-<!-- … (everything before <script> stays the same) … -->
+    <!-- Article 5 -->
+    <a href="article5.html" class="card">
+        <h3>Fritidsaktiviteter når det regner</h3>
+        <p>Even on rainy days, Bergen offers endless adventures—hiking in the nearby mountains...</p>
+    </a>
 
-<script>
-/* ---------- Rain Generation ----------
-   container : element that will hold the drops
-   count    : how many drops
-   speedRange : [min, max] seconds per drop
-   size     : [width, height] of each drop
-   color    : background colour of the drop
-   topOffset: starting top offset (negative value)
-*/
-function createRain(container, count, speedRange, size, color, topOffset) {
-  for (let i = 0; i < count; i++) {
-    const drop = document.createElement('div');
-    drop.className = 'drop';
-    const left = Math.random() * 100;                  // 0–100 %
-    const duration = speedRange[0] + Math.random() * (speedRange[1] - speedRange[0]);
-    const delay = -Math.random() * duration;
+    <!-- Article 6 -->
+    <a href="article6.html" class="card">
+        <h3>Regn kraftstasjon</h3>
+        <p>Even on rainy days, Bergen offers endless adventures—hiking in the nearby mountains...</p>
+    </a>
+</div>
+    </section>
+    
+    <div class="backdrop"></div>
 
-    // positioning & size
-    drop.style.position = 'absolute';
-    drop.style.left = left + '%';
-    drop.style.top = topOffset + 'px';
-    drop.style.width = size[0];
-    drop.style.height = size[1];
-    drop.style.background = color;
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Gruppe 3 @ HVL Bergen.</p>
+    </footer>
 
-    // animation – keep looping
-    drop.style.animationName = 'fall';
-    drop.style.animationDuration = duration + 's';
-    drop.style.animationDelay = delay + 's';
-    drop.style.animationIterationCount = 'infinite'; // <‑‑ key change
-
-    container.appendChild(drop);
-  }
-}
-
-/* ---------- Keyframes ---------- */
-const style = document.createElement('style');
-style.textContent = `
-@keyframes fall { to { transform: translateY(110vh); } }
-`;
-document.head.appendChild(style);
-
-/* ---------- Apply rain ----------
-   Background rain
-*/
-createRain(
-  document.querySelector('.rain'),
-  200,
-  [4, 6],          // 4–6 s per drop
-  ['2px', '12px'], // width × height
-  'rgba(255,255,255,0.7)',
-  -12              // start 12 px above viewport
-);
-
-/* ---------- Glass‑rain ----------
-   Drops that fall on the glass window
-*/
-createRain(
-  document.querySelector('.window-rain'),
-  80,
-  [1, 3],          // faster on glass
-  ['4px', '4px'],
-  'rgba(255,255,255,0.3)',
-  -5               // smaller drops, start 5 px above
-);
-
-/* ---------- Chart ---------- */
-const ctx = document.getElementById('rainfallChart').getContext('2d');
-new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-    datasets: [
-      {label:'Bergen (mm)',data:[110,120,140,150,170,150,140,130,120,130,150,140],
-        backgroundColor:'rgba(0,123,255,0.6)',borderColor:'rgba(0,123,255,1)',borderWidth:1},
-      {label:'Oslo (mm)',data:[85,90,100,110,120,110,95,85,90,100,110,100],
-        backgroundColor:'rgba(255,193,7,0.6)',borderColor:'rgba(255,193,7,1)',borderWidth:1}
-    ]
-  },
-  options:{
-    responsive:true,
-    plugins:{legend:{position:'top'},title:{display:false}},
-    scales:{
-      y:{beginAtZero:true,ticks:{color:'#d0e6ff'},grid:{color:'rgba(255,255,255,0.1)'}},
-      x:{ticks:{color:'#d0e6ff'},grid:{color:'rgba(255,255,255,0.05)'}}
-    }
-  }
-});
-</script>
-<!-- … (everything after <script> stays the same) … -->
+    <!-- Rain Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const rainContainer = document.getElementById('rain');
+            const dropCount = 150; // Number of rain drops
+            
+            for (let i = 0; i < dropCount; i++) {
+                const drop = document.createElement('div');
+                drop.classList.add('drop');
+                
+                // Random position across the screen
+                const leftPos = Math.random() * 100;
+                drop.style.left = `${leftPos}%`;
+                
+                // Random length (30-80px)
+                const length = 30 + Math.random() * 50;
+                drop.style.height = `${length}px`;
+                
+                // Random animation duration (1-2.5s) for natural variation
+                const duration = 1 + Math.random() * 1.5;
+                drop.style.animationDuration = `${duration}s`;
+                
+                // Random delay to start animation
+                drop.style.animationDelay = `${Math.random() * 2}s`;
+                
+                rainContainer.appendChild(drop);
+            }
+    });
+        
+    </script>
 </body>
 </html>
