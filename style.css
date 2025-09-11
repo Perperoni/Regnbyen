@@ -138,13 +138,13 @@
 }
 .hero-content { max-width: 800px; z-index: 2; }
 .hero h1 {
-    font-size: 3.8rem;
+    font-size: 4.8rem;
     margin-bottom: 1.5rem;
     background: linear-gradient(to right, var(--secondary), white);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    line-height: 1.2;
+    line-height: 1.6;
 }
 .hero p { font-size: 1.2rem; margin-bottom: 2.5rem; line-height: 1.6; opacity: 0.9; }
 .cta-button {
