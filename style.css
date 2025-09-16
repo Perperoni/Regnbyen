@@ -246,20 +246,25 @@
     border-radius: 2px;
 }
 .article h3 {
-  margin-top: 0.6rem; 
-  margin-bottom: 0.6rem; 
+  margin-top: 0.8rem; 
+  margin-bottom: 0.4rem; 
 }
 .mellomrom1 {
     margin-bottom: 0.3rem;
 }
 .fig-hside {
     float: right;
-    margin: 0rem 2rem 1rem 3rem;
+    margin: 0rem 0rem 1rem 3rem;
     width: 200px;
 }
 
 .fig-hside img {
     width: 100%;
+}
+.fig-hsidekart {
+    float: right;
+    margin: 0rem 6rem 1rem 3rem;
+    width: 200px;
 }
 
 
