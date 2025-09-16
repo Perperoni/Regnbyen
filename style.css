@@ -247,7 +247,14 @@
 }
 .article h3 {
   margin-top: 0.8rem; 
+  margin: 0.8rem 4rem 0.4rem 4rem; 
   margin-bottom: 0.4rem; 
+}
+.article p {
+    margin: 0 4rem; 
+}
+.article li {
+    margin-left: 2rem; 
 }
 .mellomrom1 {
     margin-bottom: 0.3rem;
