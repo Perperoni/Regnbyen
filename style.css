@@ -16,6 +16,13 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+@media screen and (min-width: 1000px){
+    .page-content {
+        width: 55%;
+    }
+}
+
+
 /* -----------------------------
    Navigation Bar
    ----------------------------- */
@@ -35,7 +42,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    gap: 3em;
 }
 .logo {
     font-size: 1.6rem;
@@ -45,8 +52,10 @@
     letter-spacing: 0.5px;
 }
 .nav-links {
+    color: var(--text-light);
     display: flex;
-    gap: 2.5rem;
+    justify-content: end;
+    gap: 6vw;
 }
 .nav-item {
     position: relative;
@@ -62,51 +71,9 @@
 .nav-item:hover span {
     color: var(--secondary);
 }
-.dropdown-menu {
-    position: absolute;
-    top: 120%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-    padding: 1rem 0;
-    min-width: 220px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-.nav-item:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(-8px);
-}
-.dropdown-link {
-    display: block;
-    color: var(--primary);
-    text-decoration: none;
-    padding: 0.7rem 2rem;
-    font-size: 0.98rem;
-    transition: all 0.3s ease;
-}
-.dropdown-link:hover {
-    background-color: rgba(96, 165, 250, 0.1);
-    color: var(--accent);
-    padding-left: 2.4rem;
-}
-.nav-cta {
-    background-color: var(--secondary);
-    color: white;
-    padding: 0.6rem 1.8rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-.nav-cta:hover {
-    background-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+
+.nav-bar-spacer {
+    height: 8rem;
 }
 
 /* -----------------------------
@@ -142,7 +109,7 @@
 }
 .hero-content { max-width: 800px; z-index: 2; }
 .hero h1 {
-    font-size: 4.8rem;
+    font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
     margin-bottom: 1.5rem;
     background: linear-gradient(to right, var(--secondary), white);
     -webkit-background-clip: text;
@@ -151,22 +118,24 @@
     line-height: 1.6;
 }
 .hero p { font-size: 1.2rem; margin-bottom: 2.5rem; line-height: 1.6; opacity: 0.9; }
+
 .cta-button {
     display: inline-block;
-    background-color: var(--accent);
-    color: white;
-    padding: 1rem 2.5rem;
-    border-radius: 8px;
+    color: rgb(255, 255, 255);
+    padding: 1.2rem;
+    border-radius: 20rem;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     transition: all 0.4s ease;
-    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+    
 }
+
 .cta-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
-    background-color: #0d9488;
+    background-color: var(--accent);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
 }
 
 /* -----------------------------
@@ -218,19 +187,31 @@
 }
 .about-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 1rem;
 }
 .card {
     background-color: rgb(101, 211, 255);
+    height: 20rem;
+    overflow: hidden;
     border-radius: 12px;
     padding: 2.5rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
+    color: var(--primary);
+    text-decoration: none;
 }
 .card:hover { transform: translateY(-10px); }
-.card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: black; }
-.card p { line-height: 1.7; opacity: 0.8; color: black }
+.card h3 { font-size: 1.5rem; margin-bottom: 1rem;}
+.card p { 
+    line-height: 1.7; 
+    opacity: 0.8;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 /* -----------------------------
    Article Section
@@ -241,6 +222,10 @@
     max-width: 800px;
     margin: 0 auto;
     color: var(--bg-dark);
+}
+
+.article h1 {
+    margin-top: 8rem;
 }
 .article h2 {
     font-size: 2.5rem;
