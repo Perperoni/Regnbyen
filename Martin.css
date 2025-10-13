@@ -1,0 +1,100 @@
+
+@font-face {
+  font-family: Akira; /* set name */
+  src: url(Akira\ Expanded\ Demo.otf); /* url of the font */
+}
+@font-face {
+  font-family: Yeongam; /* set name */
+  src: url(YeongamWolchulsan.ttf); /* url of the font */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #efe6dd;
+}
+
+.top-bar span {
+    font-family: 'helvetica', monospace;
+}
+
+.top-bar a {
+    text-decoration: none;
+    color: #F7374C;
+}
+
+.top-bar {
+    position: fixed;
+    color: #F7374C;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.2em;
+    z-index: 10;                                     
+}
+
+.top-bar::before {
+    content: "";
+    display: block;
+    width: 15%;
+    height: 2px;
+    background-color: #F7374C;
+    margin: 0 auto 0.5rem;
+}
+
+.top-bar::after {
+    content: "";
+    display: block;
+    width: 15%;
+    height: 2px;
+    background-color: #F7374C;
+    margin: 0.5rem auto 0;
+}
+
+.hero {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    font-family: Akira, sans-serif;
+    font-size: 8em;
+    letter-spacing: 0em;
+}
+.hero h1 {
+    position: relative;
+    bottom: 10rem;
+}
+
+.hero h2 {
+    transform: rotate(-15deg);
+    font-family: Yeongam, sans-serif;
+    position: absolute;
+    color: #F7374C;
+    bottom: 12rem;
+    font-size: 20rem;
+    letter-spacing: 4rem;
+}
+
+.hero img {
+    position: absolute;
+    width: 30%;
+}
+
+.content {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    font-family: 'helvetica', monospace;
+}
+
+table {
+    text-align: center;
+    margin: 2rem 0;
+}
