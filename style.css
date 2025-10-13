@@ -52,11 +52,18 @@
     letter-spacing: 0.5px;
 }
 .nav-links {
+    
     color: var(--text-light);
     display: flex;
     justify-content: end;
     gap: 6vw;
 }
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
 .nav-item {
     position: relative;
     cursor: pointer;
@@ -274,10 +281,108 @@
     width: 200px;
 }
 
+/* -----------------------------
+   Om Oss
+   ----------------------------- */
+   .about-us {
+    width: 100%;
+    height: 85vh;
+    padding: 6rem 0;
+    color: var(--bg-dark);
+    }
 
+   .about-us h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--primary);
+    position: relative;
+    }
+    .about-us h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+    }   
 
+    .about-us a {
+        text-decoration: none;
+    }
 
+   #anton {
+    background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('anton.jpg');
+    background-position: center;
+   }
 
+   #helle {
+    background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('Helle.jpg');
+    background-position: center;
+   }
+
+    #martin {
+     background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('martin.jpg');
+    }
+
+    #mint {
+     background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('mint.jpg');
+     background-position: center;
+    }
+
+    #per {
+     background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('Bilder/per.jpg');
+    }
+
+   #person-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   }
+
+   .person-card {
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    background-size: cover;
+    border: var(--primary) 4px solid;
+    height: 424px;
+    width: 300px;
+    display: flex;
+    color: var(--text-light);
+    justify-content: space-around;
+    align-items: center;
+    transition: transform 0.3s ease;
+   }
+   .person-card:hover { 
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+    }
+
+   .person-card div {
+    position: relative;
+    top: 150px;
+   }
+   .person-card .info {
+    padding: 1rem;
+   }
+
+   .person-card .name {
+    font-size: 1rem;
+    font-weight: 600;
+   }
+
+   .person-card .role {
+    font-weight: 400;
+    opacity: 0.8;
+   }
+
+    .person-card:hover .cta-button {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
+        background-color: var(--accent);
+        box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+    }
 
 /* -----------------------------
    Footer
