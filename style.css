@@ -313,21 +313,21 @@
     }
 
    #anton {
-    background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('anton.jpg');
+    background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('Bilder/anton.jpg');
     background-position: center;
    }
 
    #helle {
-    background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('Helle.jpg');
+    background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('Bilder/Helle.jpg');
     background-position: center;
    }
 
     #martin {
-     background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('martin.jpg');
+     background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('Bilder/martin.jpg');
     }
 
     #mint {
-     background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('mint.jpg');
+     background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('Bilder/mint.jpg');
      background-position: center;
     }
 

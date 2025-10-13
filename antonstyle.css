@@ -3,7 +3,7 @@ body {
   margin: 0;
 
 
-  background-image: url('burger.jpg'); 
+  background-image: url('Bilder/burger.jpg'); 
   background-size: cover;              
   background-position: center;         
   background-attachment: fixed;        
@@ -13,6 +13,89 @@ body {
 html {
   box-sizing: border-box;
 }
+
+:root {
+    --primary: #1e3a8a;   /* Deep Nordic blue */
+    --secondary: #60a5fa; /* Rainy sky blue */
+    --accent: #0ea5e9;    /* Ocean‑inspired teal */
+    --text-light: #f8fafc;/* Off‑white for text */
+    --bg-dark: #0f172a;   /* Dark navy for depth */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media screen and (min-width: 1000px){
+    .page-content {
+        width: 55%;
+    }
+}
+
+
+/* -----------------------------
+   Navigation Bar
+   ----------------------------- */
+.nav-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.2rem 5%;
+    background-color: rgba(30, 58, 138, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+.nav-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3em;
+}
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+.nav-links {
+    
+    color: var(--text-light);
+    display: flex;
+    justify-content: end;
+    gap: 6vw;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.nav-item {
+    position: relative;
+    cursor: pointer;
+}
+.nav-item span {
+    color: var(--text-light);
+    font-weight: 500;
+    padding: 0.6rem 0;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+.nav-item:hover span {
+    color: var(--secondary);
+}
+
+.nav-bar-spacer {
+    height: 8rem;
+}
+
 
 *, *:before, *:after {
   box-sizing: inherit;
