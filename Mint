@@ -26,7 +26,7 @@ img {
     border: 5px; 
     border-radius: 10px; 
 }
-<img src= 
+<img src= "Mint.jpg">
   <p>
     Jeg har åtte års erfaring som prosjektleder. Jeg har drevet med å lede mange forbedringsarbeid knyttet til arbeidsprosesser. Mitt rolle i dette prosjektet er å lede utvklingsarbeid med en meget kompetente og hyggelige utviklingsteam. 
     Ved siden av arbeidet som prosjektleder er jeg også fulltids mammma for to oransje katter ved navnet Aslan og Nala. 
