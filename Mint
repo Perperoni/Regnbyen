@@ -5,6 +5,11 @@
 <meta charset="UTF-8">
 <title>Regnbyen Bergen – Mint Endresen</title>
 <link rel="stylesheet" href="style.css">
+<style>
+        body {
+                backgroud-image: url("5f74c458dd6baed4621b6e591facabd1.jpg");
+                background-size: cover; 
+                background-position: center center; 
 </head>
 <body>
 <nav class="nav-container">
