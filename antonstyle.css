@@ -35,12 +35,14 @@ html {
 .about-section {
   padding: 100px 50px;
   text-align: center;
-  color: black;
-
-  background-color: rgba(255, 255, 255, 0.6);
+  color: white;
+  background-color: rgba(60, 60, 60, 0.6);
   border-radius: 15px;
   margin: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  
+  font-size: 1.2rem; /* gjør all teksten litt større */
+  line-height: 1.6;  /* gir litt luft mellom linjene */
 }
 
 
