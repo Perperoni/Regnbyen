@@ -1,0 +1,38 @@
+<!-- article1.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Regnbyen Bergen – Mint Endresen</title>
+<link rel="stylesheet" href="style.css">
+<style>
+        body {
+                backgroud-image: url("5f74c458dd6baed4621b6e591facabd1.jpg");
+                background-size: cover; 
+                background-position: center center; 
+</head>
+<body>
+<nav class="nav-container">
+        <div class="nav-content page-content">
+            <a href="index.html" class="logo" style="font-size: 1.8rem; font-weight: 700; color: white; text-decoration: none;">Regnbyen<span style="color: var(--secondary);">.</span></a>
+            
+            <div class="nav-links">
+                <span class="nav-item">Side-1</span>
+                <span class="nav-item">Side-2</span>
+                <span class="nav-item">Om oss</span>
+            </div>
+        </div>
+    </nav>
+
+<section class="article">
+  <h1> Crazy catlady prosjektleder </h1>
+img {
+    width: 300px; 
+    border: 5px; 
+    border-radius: 10px; 
+}
+<img src= "Mint.jpg">
+  <p>
+    Jeg har åtte års erfaring som prosjektleder. Jeg har drevet med å lede mange forbedringsarbeid knyttet til arbeidsprosesser. Mitt rolle i dette prosjektet er å lede utvklingsarbeidet med en meget kompetente og hyggelige utviklingsteam. 
+    Ved siden av arbeidet som prosjektleder er jeg også fulltids mammma for to oransje katter ved navnet Aslan og Nala. 
+  </p>
