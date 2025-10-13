@@ -52,7 +52,7 @@
     letter-spacing: 0.5px;
 }
 .nav-links {
-    
+    list-style-type: none;
     color: var(--text-light);
     display: flex;
     justify-content: end;
