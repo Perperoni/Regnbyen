@@ -9,6 +9,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn import preprocessing
 import matplotlib.image as mpimg
 from sklearn.preprocessing import PolynomialFeatures
+from matplotlib.patches import Patch
 
 def draw_the_map():
     # Accumulate all months to year
@@ -23,6 +24,16 @@ def draw_the_map():
     labels = [label_from_nedbor(n) for n in nedborAar]
     for i, y in enumerate(xr):
         axMap.text(xr[i], yr[i], s=labels[i], color='white', fontsize=10, ha='center', va='center')
+
+    # Add legend for rainfall colors
+    legend_elements = [
+        Patch(facecolor='lightblue', label='<1300 mm'),
+        Patch(facecolor='darkcyan', label='1300–1700 mm'),
+        Patch(facecolor='blue', label='1700–2500 mm'),
+        Patch(facecolor='darkblue', label='2500–3200 mm'),
+        Patch(facecolor='black', label='>3200 mm')
+    ]
+    axMap.legend(handles=legend_elements, title="Årsnedbør (mm)", loc='upper right', fontsize=8)
 
 def index_from_nedbor(x):
     if x < 1300: return 0
@@ -111,7 +122,7 @@ r_squared = r2_score(Y_test, Y_pred)
 print(f"R-squared: {r_squared:.2f}")
 print('mean_absolute_error (mnd) : ', mean_absolute_error(Y_test, Y_pred))
 
-colors = [ 'orange', 'gray', 'blue', 'darkblue', 'black']
+colors = ['lightblue', 'darkcyan', 'blue', 'darkblue', 'black']
 draw_the_map()
 
 plt.connect('button_press_event', on_click)
