@@ -71,9 +71,7 @@ def on_click(event) :
     vectors = np.vstack([[x, y, m] for m in range(1, 13)])
     AtPointM = poly.fit_transform(vectors)
     y_pred = model.predict(AtPointM)
-    genomsnitt_nedbor = stats.mean(y_pred)
     aarsnedbor = sum(y_pred)
-    genomsnitt_nedbor = stats.mean(y_pred)
 
     # Redraw map and highlight selected point
     draw_the_map()
