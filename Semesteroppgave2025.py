@@ -95,7 +95,6 @@ def plot_month_view(y_pred, aarsnedbor):
     m_vals = [sum(y_pred[i * 1:(i + 1) * 1]) for i in range(12)]
     axGraph.bar(months, y_pred,
                 color=[color_from_nedbor(n * 12) for n in y_pred]) # Tegn stolpediagram
-    axGraph.legend(fontsize=10)
     draw_label_and_ticks()
     avg_m = np.mean(m_vals)
     axGraph.axhline(avg_m, color='r', linestyle='--', label=f'Gjennomsnitt: {avg_m:.1f} mm')
