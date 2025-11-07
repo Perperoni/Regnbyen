@@ -1,6 +1,7 @@
 # importing modules and packages
 import pandas as pd
 import numpy as np
+import statistics as stats
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
@@ -53,6 +54,7 @@ def on_click(event) :
     # fitting the model, and predict for each month
     AtPointM = poly.fit_transform(AtPoint)
     y_pred = model.predict(AtPointM)
+    genomsnitt_nedbor = stats.mean(y_pred)
     aarsnedbor = sum(y_pred)
     axGraph.cla()
     draw_the_map()
@@ -65,7 +67,9 @@ def on_click(event) :
     colorsPred = [color_from_nedbor(nedbor * 12) for nedbor in y_pred]
     axMap.scatter(x, y, c=color_from_nedbor(aarsnedbor), s=size_from_nedbor(aarsnedbor) * 3.5, marker="o")
     axMap.scatter(x, y, c="red", s=size_from_nedbor(aarsnedbor)*2.5, marker="o")
-    axGraph.bar(months, y_pred, color=colorsPred)
+    axGraph.bar(months, y_pred, color=colorsPred) # Tegn stolpediagram
+    axGraph.axhline(y=genomsnitt_nedbor, color='r', linestyle='--', label=f'Gjennomsnitts nedbør: {int(genomsnitt_nedbor)}mm') # Tegn gjennomsnittslinje
+    axGraph.legend(fontsize=10)
     draw_label_and_ticks()
     plt.draw()
 
