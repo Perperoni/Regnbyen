@@ -2,11 +2,11 @@
    Global variables & reset
    ----------------------------- */
 :root {
-    --primary: #1e3a8a;   /* Deep Nordic blue */
-    --secondary: #60a5fa; /* Rainy sky blue */
-    --accent: #0ea5e9;    /* Ocean‑inspired teal */
-    --text-light: #f8fafc;/* Off‑white for text */
-    --bg-dark: #0f172a;   /* Dark navy for depth */
+    --primary: #1e3a8a;   
+    --secondary: #60a5fa; 
+    --accent: #0ea5e9;    
+    --text-light: #f8fafc;
+    --bg-dark: #0f172a;   
 }
 
 * {
@@ -23,9 +23,7 @@
 }
 
 
-/* -----------------------------
-   Navigation Bar
-   ----------------------------- */
+/* Regnbyen navigasjonsbar */
 .nav-container {
     position: fixed;
     top: 0;
@@ -145,9 +143,7 @@
     box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
 }
 
-/* -----------------------------
-   Rain Animation Overlay
-   ----------------------------- */
+/* Regnanimasjon */
 .rain {
     position: absolute;
     top: 0;
@@ -220,9 +216,7 @@
     text-overflow: ellipsis;
 }
 
-/* -----------------------------
-   Article Section
-   ----------------------------- */
+/* Artikler */
 
 .article{
     padding: 1rem 5%;
@@ -413,7 +407,42 @@ footer p { opacity: 0.7; font-size: 0.95rem; }
     .rain { display: block; }
 }
 
-/* -----------------------------
-   Smooth scroll
-   ----------------------------- */
+
 html { scroll-behavior: smooth; }
+
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    margin-top: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1; 
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #a2c7ff;}
+
