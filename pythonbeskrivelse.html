@@ -21,7 +21,7 @@
         }
         .toc {
             position: sticky;
-            top: 7.5rem; /* ligger under navbar */
+            top: 7.5rem;
             align-self: start;
             background: #f8fbff;
             border: 1px solid #e5edf9;
@@ -45,33 +45,70 @@
         }
         .toc a:hover { text-decoration: underline; }
 
-       
         pre {
             background: #0b1224;
             color: #e6f0ff;
             border-radius: 10px;
             padding: 1rem 1.2rem;
             overflow: auto;
-            margin: .6rem 4rem 1.2rem 4rem; /* matcher .article-innhold */
+            margin: .6rem 4rem 1.2rem 4rem;
             border: 1px solid rgba(96,165,250,.25);
             font-size: .95rem;
             line-height: 1.5;
         }
-        code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Liberation Mono", monospace;
+        }
 
-
-        .article h1 { margin-top: 8rem; }
+        .article h1 {
+            margin-top: 8rem;
+        }
         .lead {
             margin: .6rem 4rem 1.2rem 4rem;
             opacity: .9;
         }
 
 
+        .article h2 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            text-align: center;
+            position: relative;
+        }
+        .article h2::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin: 0.4rem auto 0;
+            border-radius: 2px;
+        }
+
         @media (max-width: 1024px) {
             .article-wrapper { grid-template-columns: 1fr; }
             .toc { position: relative; top: 0; }
         }
+
+        .article section {
+            background-color: #f8fbff;
+            border: 1px solid #dbeafe;
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 4rem 2rem 4rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        
+        .article section p:last-child {
+            margin-bottom: 0.8rem;
+        }
+
     </style>
+
 </head>
 <body>
 
@@ -98,7 +135,7 @@
 </nav>
 
 <main class="article">
-    <h1>Bruksanvisning – Semesteroppgave2025 (Nedbør &amp; Vindstyrke i Stor-Bergen)</h1>
+    <h1>Bruksanvisning – Semesteroppgave2025 (Nedbør & Vindstyrke i Bergen)</h1>
     <p class="lead">
         Denne veiledningen forklarer hvordan du bruker nettsiden som startes av <strong>«Semesteroppgave2025.py»</strong>. Appen viser et kart over Bergen og lar deg klikke for å se predikert nedbør og vindstyrke per måned eller per kvartal på valgt sted.
     </p>
@@ -118,7 +155,7 @@
 
 
         <article aria-label="Bruksanvisning innhold">
-            <!-- 1) Hva ser du i appen? -->
+
             <section id="hva-ser-du" aria-labelledby="hva-ser-du-tittel">
                 <h2 id="hva-ser-du-tittel">1) Hva ser du i appen?</h2>
 
@@ -146,6 +183,7 @@
                     <li><strong>Visning:</strong> «Måned» eller «Kvartal».</li>
                     <li><strong>Data:</strong> «Nedbor» eller «Vindstyrke».</li>
                 </ul>
+
             </section>
 
 
@@ -168,6 +206,7 @@
                     </li>
                     <li>Gjenta klikk for å se andre steder; bytt fritt mellom «Måned/Kvartal» og «Nedbor/Vindstyrke».</li>
                 </ol>
+
             </section>
 
 
@@ -201,6 +240,7 @@ python Semesteroppgave2025.py
 </code></pre>
 
                 <p class="mellomrom1">Et Matplotlib-vindu åpnes med kartet (høyre) og diagrammet (venstre).</p>
+
             </section>
 
 
@@ -218,6 +258,7 @@ python Semesteroppgave2025.py
                     <li><strong>Måned:</strong> X-akse 1–12, Y-akse verdi per måned.</li>
                     <li><strong>Kvartal:</strong> X-akse Q1–Q4.</li>
                 </ul>
+
             </section>
 
 
@@ -233,6 +274,7 @@ python Semesteroppgave2025.py
                 <p class="mellomrom1">
                     Lykke til! Klikk gjerne litt rundt i kartet og sammenlign steder, måneder og kvartal – for både nedbør og vindstyrke.
                 </p>
+
             </section>
         </article>
     </div>
