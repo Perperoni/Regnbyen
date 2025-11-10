@@ -150,7 +150,9 @@ def on_click(event) :
     vectors_vind = np.vstack([[x, y, m] for m in range(1, 13)])
     AtPointV = poly_vind.fit_transform(vectors_vind)
     y_pred_vind = model_vind.predict(AtPointV)
+    print(y_pred_vind)
     aarsvindstyrke = stats.mean(y_pred_vind)
+    if aarsvindstyrke < 0: aarsvindstyrke = 0
 
     # Redraw map and highlight selected point
     draw_the_map()
@@ -171,24 +173,30 @@ def on_click(event) :
 def plot_month_view(y_pred, aarsnedbor):
     months = np.linspace(1, 12, 12)
     m_vals = [sum(y_pred[i * 1:(i + 1) * 1]) for i in range(12)]
-    axGraph.bar(months, y_pred,
-                color=[color_from_nedbor(n * 12) for n in y_pred]) # Tegn stolpediagram
+    if current_data == 'Nedbor': axGraph.bar(months, y_pred, color=[color_from_nedbor(n * 12) for n in y_pred]) # Tegn stolpediagram
+    if current_data == 'Vindstyrke': axGraph.bar(months, y_pred, color=[color_from_vindstyrke(n) for n in y_pred]) # Tegn stolpediagram
     draw_label_and_ticks()
     avg_m = np.mean(m_vals)
-    axGraph.axhline(avg_m, color='r', linestyle='--', label=f'Gjennomsnitt: {avg_m:.1f} mm')
+    if current_data == 'Nedbor':axGraph.axhline(avg_m, color='r', linestyle='--', label=f'Gjennomsnitt: {avg_m:.1f} mm')
+    if current_data == 'Vindstyrke':axGraph.axhline(avg_m, color='r', linestyle='--', label=f'Gjennomsnitt: {avg_m:.1f} m/s')
     axGraph.legend(fontsize=10, loc='upper right')
-    axGraph.set_title(f"Nedbør per måned – Årsnedbør {int(aarsnedbor)} mm")
+    if current_data == 'Nedbor':axGraph.set_title(f"Nedbør per måned – Årsnedbør {int(aarsnedbor)} mm")
+    if current_data == 'Vindstyrke':axGraph.set_title(f"Vindstyrke per måned")
 
 def plot_quarter_view(y_pred, aarsnedbor):
     quarters = [1, 2, 3, 4]
     q_vals = [sum(y_pred[i*3:(i+1)*3]) for i in range(4)]
-    axGraph.bar(quarters, q_vals, color=[color_from_nedbor(n * 12) for n in y_pred])
+    if current_data == 'Nedbor': axGraph.bar(quarters, q_vals, color=[color_from_nedbor(n * 12) for n in y_pred])
+    if current_data == 'Vindstyrke': axGraph.bar(quarters, q_vals, color=[color_from_vindstyrke(n) for n in y_pred])
     axGraph.set_xticks(quarters)
     axGraph.set_xticklabels(['Q1', 'Q2', 'Q3', 'Q4'])
     avg_q = np.mean(q_vals)
-    axGraph.axhline(avg_q, color='r', linestyle='--', label=f'Gjennomsnitt: {avg_q:.1f} mm')
+    if avg_q < 0: avg_q = 0
+    if current_data == 'Nedbor': axGraph.axhline(avg_q, color='r', linestyle='--', label=f'Gjennomsnitt: {avg_q:.1f} mm')
+    if current_data == 'Vindstyrke': axGraph.axhline(avg_q, color='r', linestyle='--', label=f'Gjennomsnitt: {avg_q:.1f} m/s')
     axGraph.legend(fontsize=10, loc='upper right')
-    axGraph.set_title(f"Nedbør per kvartal – Årsnedbør {int(aarsnedbor)} mm")
+    if current_data == 'Nedbor':axGraph.set_title(f"Nedbør per kvartal – Årsnedbør {int(aarsnedbor)} mm")
+    if current_data == 'Vindstyrke':axGraph.set_title(f"Vindstyrke per kvartal")
 
 def draw_label_and_ticks():
     xlabels = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
@@ -250,7 +258,7 @@ X_poly = poly.fit_transform(X)
 X_train, X_test, Y_train, Y_test = train_test_split(
     X_poly, ns, test_size=0.25)
 
-model = LinearRegression()
+model = LinearRegression(positive=True)
 model.fit(X_train, Y_train) # fitting the model
 Y_pred = model.predict(X_test)
 
@@ -269,6 +277,7 @@ X_train_vind, X_test_vind, Y_train_vind, Y_test_vind = train_test_split(
 model_vind = LinearRegression()
 model_vind.fit(X_train_vind, Y_train_vind) # fitting the model
 Y_pred_vind = model_vind.predict(X_test_vind)
+
 
 r_squared_vind = r2_score(Y_test_vind, Y_pred_vind)
 print(f"R-squared Vindstyrke: {r_squared_vind:.2f}")

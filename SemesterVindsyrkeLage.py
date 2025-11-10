@@ -5,8 +5,8 @@ df = pd.read_csv('vindstyrke.csv')
 df["Month"] = 12
 month = list(range(1,12))
 
-monthfactor1 = [0,100,100,110,80,70,80,110,110,120,120,150,200]
-monthfactor2 = [0,100,100,100,100,80,100,120,200,200,150,130,120]
+monthfactor1 = [0,200,150,110,80,70,80,110,110,120,120,150,200]
+monthfactor2 = [0,200,130,100,100,80,100,120,200,200,150,130,120]
 
 df2 = pd.DataFrame(columns=['X','Y','Vindstyrke','Month'])
 rows = len(df)
@@ -17,11 +17,9 @@ for irow in range(0, rows):
         ypos = df.iloc[irow, 1]
         for month in range(1, 13):
             factor =  monthfactor2[month] if xpos > 9 else monthfactor1[month]
-            print(factor)
-            print( df.iloc[irow, 2])
-            vindstyrke = df.iloc[irow, 2] * factor / (random.randrange(1220, 2000)/20)
-            vindstyrke = min(32,vindstyrke)
-            df2.loc[len(df2)] = [xpos,ypos,round(vindstyrke,2),month]
+            vindstyrke = int(df.iloc[irow, 2] * factor / random.randrange(1220, 2000))
+            vindstyrke = max(0,vindstyrke)
+            df2.loc[len(df2)] = [xpos,ypos,round(vindstyrke),month]
 
 df2.to_csv('VindstyrkeX.csv',index=False)
 print(df2)
