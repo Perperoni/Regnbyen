@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bruksanvisning – Semesteroppgave2025</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/d763035e5a.js" crossorigin="anonymous"></script>
+    <script src="javascript.js"></script>
+    <script src="./navbar.js" defer></script>
+
+
+    <style>
+        .article-wrapper {
+            display: grid;
+            grid-template-columns: minmax(220px, 280px) 1fr;
+            gap: 2rem;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .toc {
+            position: sticky;
+            top: 7.5rem;
+            align-self: start;
+            background: #f8fbff;
+            border: 1px solid #e5edf9;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .toc h2 {
+            font-size: 1.1rem;
+            margin: 0 0 .6rem 0;
+            color: var(--primary);
+        }
+        .toc ol {
+            list-style: decimal;
+            padding-left: 1.1rem;
+            line-height: 1.6;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #0f254f;
+        }
+        .toc a:hover { text-decoration: underline; }
+
+        pre {
+            background: #0b1224;
+            color: #e6f0ff;
+            border-radius: 10px;
+            padding: 1rem 1.2rem;
+            overflow: auto;
+            margin: .6rem 4rem 1.2rem 4rem;
+            border: 1px solid rgba(96,165,250,.25);
+            font-size: .95rem;
+            line-height: 1.5;
+        }
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Liberation Mono", monospace;
+        }
+
+        .article h1 {
+            margin-top: 8rem;
+        }
+        .lead {
+            margin: .6rem 4rem 1.2rem 4rem;
+            opacity: .9;
+        }
+
+
+        .article h2 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            text-align: center;
+            position: relative;
+        }
+        .article h2::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin: 0.4rem auto 0;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 1024px) {
+            .article-wrapper { grid-template-columns: 1fr; }
+            .toc { position: relative; top: 0; }
+        }
+
+        .article section {
+            background-color: #f8fbff;
+            border: 1px solid #dbeafe;
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 4rem 2rem 4rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+
+        .article section p:last-child {
+            margin-bottom: 0.8rem;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<nav class="nav-container" aria-label="Hovedmeny">
+    <div class="nav-content page-content">
+        <a href="index.html" class="logo" style="font-size: 1.8rem; font-weight: 700; color: white; text-decoration: none;" aria-label="Regnbyen Bergen hjemmeside">
+            Regnbyen<span style="color: var(--secondary);">.</span>
+        </a>
+        <ul class="nav-links" role="menubar">
+            <div class="dropdown">
+                <button class="dropbtn">Artikler</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="article2.html">Klær</a>
+                    <a href="article3.html">Bolig</a>
+                    <a href="article4.html">Bil</a>
+                    <a href="article5.html">Fritidsaktiviteter</a>
+                    <a href="article6.html">Vær</a>
+                </div>
+            </div>
+            <li role="none"><a href="kontakt-oss.html" class="nav-item" role="menuitem" tabindex="0">Kontakt</a></li>
+            <li role="none"><a href="om-oss.html" class="nav-item" role="menuitem" tabindex="0">Om oss</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="article">
+    <h1>Bruksanvisning – Semesteroppgave2025 (Nedbør & Vindstyrke i Bergen)</h1>
+    <p class="lead">
+        Denne veiledningen forklarer hvordan du bruker nettsiden som startes av <strong>«Semesteroppgave2025.py»</strong>. Appen viser et kart over Bergen og lar deg klikke for å se predikert nedbør og vindstyrke per måned eller per kvartal på valgt sted.
+    </p>
+
+    <div class="article-wrapper">
+
+        <nav class="toc" aria-label="Innholdsfortegnelse">
+            <h2>Innhold</h2>
+            <ol>
+                <li><a href="#hva-ser-du">Hva ser du i appen?</a></li>
+                <li><a href="#hvordan-bruke">Hvordan bruker du appen?</a></li>
+                <li><a href="#oppstart">Oppstart</a></li>
+                <li><a href="#tolkning">Tolkning av farger og akser</a></li>
+                <li><a href="#tldr">TL;DR (cheat sheet)</a></li>
+            </ol>
+        </nav>
+
+
+        <article aria-label="Bruksanvisning innhold">
+
+            <section id="hva-ser-du" aria-labelledby="hva-ser-du-tittel">
+                <h2 id="hva-ser-du-tittel">1) Hva ser du i appen?</h2>
+
+                <h3 class="mellomrom1">Høyre side: kart</h3>
+                <ul>
+                    <li>Kart over Bergen. Oppå kartet sees punkter som representerer posisjoner i datasettet.</li>
+                    <li>Fargene viser nivå (skala/legend nede i kartet):
+                        <ul>
+                            <li><strong>Nedbør</strong></li>
+                            <li><strong>Vindstyrke</strong></li>
+                        </ul>
+                    </li>
+                    <li>Etiketter på punktene (for nedbør) viser årssum i hundre millimeter (f.eks. «19» ≈ 1900 mm).</li>
+                </ul>
+
+                <h3>Venstre side: diagram</h3>
+                <ul>
+                    <li><strong>Måned:</strong> stolpediagram med 12 stolper (jan–des).</li>
+                    <li><strong>Kvartal:</strong> 4 stolper (Q1–Q4).</li>
+                    <li>Farge på stolper følger samme skala som for kartet (nedbør eller vindstyrke).</li>
+                </ul>
+
+                <h3>Radioknapper (midt på)</h3>
+                <ul>
+                    <li><strong>Visning:</strong> «Måned» eller «Kvartal».</li>
+                    <li><strong>Data:</strong> «Nedbor» eller «Vindstyrke».</li>
+                </ul>
+
+            </section>
+
+
+            <section id="hvordan-bruke" aria-labelledby="hvordan-bruke-tittel">
+                <h2 id="hvordan-bruke-tittel">2) Hvordan bruker du appen?</h2>
+                <ol>
+                    <li>Start programmet (se «Oppstart» under).</li>
+                    <li>Velg med radioknapper:
+                        <ul>
+                            <li>«<strong>Nedbor</strong>» for nedbør, «<strong>Vindstyrke</strong>» for vindstyrke.</li>
+                            <li><strong>Visning:</strong> «Måned» eller «Kvartal» for hvordan diagrammet skal vises.</li>
+                        </ul>
+                    </li>
+                    <li>Klikk i kartet på ønsket posisjon.
+                        <ul>
+                            <li>Programmet beregner prediksjoner for de 12 månedene (polynomregresjon, grad 3) basert på klikk-koordinater og treningsdata.</li>
+                            <li>Venstre diagram oppdateres med verdier for valgt posisjon.</li>
+                            <li>Kartet markeres på klikkpunktet.</li>
+                        </ul>
+                    </li>
+                    <li>Gjenta klikk for å se andre steder; bytt fritt mellom «Måned/Kvartal» og «Nedbor/Vindstyrke».</li>
+                </ol>
+
+            </section>
+
+
+            <section id="oppstart" aria-labelledby="oppstart-tittel">
+                <h2 id="oppstart-tittel">3) Oppstart</h2>
+
+                <h3>Krav</h3>
+                <ul>
+                    <li>Python 3.9+</li>
+                    <li>Avhengigheter: «numpy», «pandas», «matplotlib», «scikit-learn»</li>
+                    <li>Disse filene må ligge i samme mappe som <strong>«Semesteroppgave2025.py»</strong>:
+                        <ul>
+                            <li>«NedborX.csv» – treningsdata for nedbør.</li>
+                            <li>«VindstyrkeX.csv» – treningsdata for vind.</li>
+                            <li>«StorBergen2.png» – bakgrunnskart.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Installer pakker (anbefalt i virtuelt miljø)</h3>
+                <pre><code>bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install numpy pandas matplotlib scikit-learn
+</code></pre>
+
+                <h3>Start programmet</h3>
+                <pre><code>bash
+python Semesteroppgave2025.py
+</code></pre>
+
+                <p class="mellomrom1">Et Matplotlib-vindu åpnes med kartet (høyre) og diagrammet (venstre).</p>
+
+            </section>
+
+
+            <section id="tolkning" aria-labelledby="tolkning-tittel">
+                <h2 id="tolkning-tittel">4) Tolkning av farger og akser</h2>
+                <ul>
+                    <li><strong>Nedbør (mm/år):</strong>
+                        <ul>
+                            <li>Lys blå: &lt;1300</li>
+                            <li>Mørkere cyan/blå: 1300–3200</li>
+                            <li>Svart: &gt;3200</li>
+                        </ul>
+                    </li>
+                    <li><strong>Vindstyrke (m/s):</strong> trinn rundt Beaufort (0 til 12+) fra lyse til mørke/varme farger.</li>
+                    <li><strong>Måned:</strong> X-akse 1–12, Y-akse verdi per måned.</li>
+                    <li><strong>Kvartal:</strong> X-akse Q1–Q4.</li>
+                </ul>
+
+            </section>
+
+
+            <section id="tldr" aria-labelledby="tldr-tittel">
+                <h2 id="tldr-tittel">6) TL;DR (cheat sheet)</h2>
+                <ul>
+                    <li><strong>Start:</strong> <code>python Semesteroppgave2025.py</code></li>
+                    <li><strong>Velg Data:</strong> «Nedbor» / «Vindstyrke»</li>
+                    <li><strong>Velg Visning:</strong> «Måned» / «Kvartal»</li>
+                    <li><strong>Klikk i kartet</strong> → se oppdatert diagram</li>
+                    <li>Bytt visning/data som du vil – klikk nye steder</li>
+                </ul>
+                <p class="mellomrom1">
+                    Lykke til! Klikk gjerne litt rundt i kartet og sammenlign steder, måneder og kvartal – for både nedbør og vindstyrke.
+                </p>
+
+            </section>
+        </article>
+    </div>
+</main>
+
+
+<footer>
+    <p>&copy; 2025 Gruppe 3 @ HVL Bergen.</p>
+</footer>
+</body>
+</html>
