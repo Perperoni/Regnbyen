@@ -10,6 +10,7 @@
     <script src="./navbar.js" defer></script>
 </head>
 <body>
+
     <nav class="nav-container" aria-label="Hovedmeny">
         <div class="nav-content page-content">
             <a href="index.html" class="logo" style="font-size: 1.8rem; font-weight: 700; color: white; text-decoration: none;" aria-label="Regnbyen Bergen hjemmeside">Regnbyen<span style="color: var(--secondary);">.</span></a>
@@ -30,6 +31,26 @@
             </ul>
         </div>
     </nav>
+    <div class="kontakt-oss">
+     <div class="contact-container">
+    <form class="contact-form">
+      <h2>Send oss en melding</h2>
+      <label for="fornavn">Fornavn</label>
+      <input type="text" id="fornavn" name="etternavn" placeholder="Fornavn" required />
+
+      <label for="fornavn">Fornavn</label>
+      <input type="text" id="etternavn" name="etternavn" placeholder="Etternavn" required />
+
+      <label for="email">Epost-adresse</label>
+      <input type="email" id="email" name="email" placeholder="@" required />
+
+      <label for="message">Melding</label>
+      <textarea id="message" name="message" placeholder="Skriv her..." required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+    </div>
 
     <footer>
         <p>&copy; 2025 Gruppe 3 @ HVL Bergen.</p>

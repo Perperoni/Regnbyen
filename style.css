@@ -81,6 +81,28 @@
     height: 8rem;
 }
 
+nav a {
+  color: #fff;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.2s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
 /* -----------------------------
    Hero Section
    ----------------------------- */
@@ -218,16 +240,17 @@
 
 /* Artikler */
 
-.article{
+.article {
     padding: 1rem 5%;
     max-width: 1000px;
     margin: 0 auto;
     color: var(--bg-dark);
+    margin-bottom: 2%;
 }
 
 .article h1 {
     margin-top: 8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem; 
     color: #1F3880
 }
 .article h2 {
@@ -386,7 +409,7 @@ footer {
     color: var(--text-light);
     text-align: center;
     padding: 2rem 5%;
-    margin-top: 4rem;
+    
 }
 footer p { opacity: 0.7; font-size: 0.95rem; }
 
@@ -446,3 +469,66 @@ html { scroll-behavior: smooth; }
 
 .dropdown-content a:hover {background-color: #a2c7ff;}
 
+
+.contact-container {
+  background-color: rgba(250, 250, 250, 0.9);
+  padding: 3rem 3rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 30%;
+}
+
+.contact-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #020110;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact-form button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.kontakt-oss .contact-form button:hover {
+  background-color: #0056b3;
+}
+
+.kontakt-oss {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('Bilder/bergen-bryggen.jpg') no-repeat center center/cover;
+  background-attachment: fixed;
+  font-family: 'Poppins', sans-serif;
+}
