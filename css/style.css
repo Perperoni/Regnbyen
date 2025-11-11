@@ -114,7 +114,7 @@ nav a:hover::after {
     text-align: center;
     padding: 6rem 5% 2rem;
     background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)),
-                url('DSCF9567.JPG') center/cover;
+                url('../Bilder/DSCF9567.JPG') center/cover;
     color: var(--text-light);
     position: relative;
     overflow: hidden;
@@ -245,7 +245,7 @@ nav a:hover::after {
     max-width: 1000px;
     margin: 0 auto;
     color: var(--bg-dark);
-    margin-bottom: 2%;
+    margin-bottom: 2rem;
 }
 
 .article h1 {
@@ -271,17 +271,15 @@ nav a:hover::after {
 }
 .article h3 {
   margin-top: 0.8rem; 
-  margin: 0.8rem 4rem 0.4rem 4rem; 
   margin-bottom: 0.4rem; 
 }
-.article p {
-    margin: 0 4rem; 
-}
+
 .article li {
     margin-left: 2rem; 
 }
 .mellomrom1 {
     margin-bottom: 0.3rem;
+
 }
 .fig-hside {
     float: right;
@@ -298,12 +296,46 @@ nav a:hover::after {
     width: 200px;
 }
 
+.artikkel2-inner {
+
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 0rem;
+  width: 1000px;
+  width: 50%;
+}
+
+.artikkel2-inner h1 {
+    color: #1F3880;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.artikkel2-inner h3 {
+    margin-bottom: 0.5rem;
+    margin-top: 0.8rem; 
+}
+
+.artikkel2 {
+    background: url('../Bilder/bergen-bilde2.jpg') no-repeat center center/cover;
+    padding: 1rem 5%;
+    margin: 0 auto;
+    color: var(--bg-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    width: 100%;
+}
+
 /* -----------------------------
    Om Oss
    ----------------------------- */
    .about-us {
     width: 100%;
-    height: 85vh;
+    height: 95vh;
     padding: 6rem 0;
     color: var(--bg-dark);
     }
@@ -314,6 +346,7 @@ nav a:hover::after {
     text-align: center;
     color: var(--primary);
     position: relative;
+    margin-top: 1%;
     }
     .about-us h2::after {
     content: "";
@@ -330,26 +363,26 @@ nav a:hover::after {
     }
 
    #anton {
-    background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('Bilder/anton.jpg');
+    background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('../Bilder/anton.jpg');
     background-position: center;
    }
 
    #helle {
-    background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('Bilder/Helle.jpg');
+    background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('../Bilder/Helle.jpg');
     background-position: center;
    }
 
     #martin {
-     background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('Bilder/martin.jpg');
+     background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('../Bilder/martin.jpg');
     }
 
     #mint {
-     background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('Bilder/mint.jpg');
+     background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('../Bilder/mint.jpg');
      background-position: center;
     }
 
     #per {
-     background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('Bilder/per.jpg');
+     background-image: linear-gradient(to top, #1e3b8a,#1e3b8a00, #1e3b8a00),url('../Bilder/per.jpg');
     }
 
    #person-container {
@@ -528,7 +561,8 @@ html { scroll-behavior: smooth; }
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('Bilder/bergen-bryggen.jpg') no-repeat center center/cover;
+  background: url('../Bilder/bergen-bryggen.jpg') no-repeat center center/cover;
   background-attachment: fixed;
   font-family: 'Poppins', sans-serif;
 }
+

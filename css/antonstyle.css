@@ -3,7 +3,7 @@ body {
   margin: 0;
 
 
-  background-image: url('Bilder/burger.jpg'); 
+  background-image: url('../Bilder/burger.jpg'); 
   background-size: cover;              
   background-position: center;         
   background-attachment: fixed;        
